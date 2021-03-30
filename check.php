@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $lastname = trim($_POST['lastname']); // get the data from a form
         $firstname = trim($_POST['firstname']);
 
-        $query = "INSERT INTO friend (firstname, lastname) VALUES ('$lastname', '$firstname')";
+        $query = "INSERT INTO friend (firstname, lastname) VALUES (:firstname, :lastname)";
         $statement = $pdo->prepare($query);
 
         $statement->bindValue(':lastname', $lastname, \PDO::PARAM_STR);
